@@ -7,3 +7,5 @@ build/
 .pytest_cache/
 alarms.json
 *.tmp
+# macOS
+.DS_Store

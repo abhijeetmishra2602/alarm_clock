@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "alarm-clock-cli"
+version = "1.0.0"
+description = "A minimal, robust alarm clock for your terminal."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "click>=8.1",
+    "rich>=13.0",
+]
+
+[project.scripts]
+alarm = "alarm_clock.cli:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["alarm_clock*"]

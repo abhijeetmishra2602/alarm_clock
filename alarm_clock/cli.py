@@ -148,7 +148,7 @@ def cmd_delete(id: str | None, delete_all: bool) -> None:
     if removed:
         console.print(f"✓  Alarm [dim]{id}[/dim] deleted.")
     else:
-        console.print(f"[red]Error:[/red] Alarm '{id}' not found.", err=True)
+        Console(stderr=True).print(f"[red]Error:[/red] Alarm '{id}' not found.")
         sys.exit(1)
 
 
@@ -163,7 +163,7 @@ def cmd_snooze(id: str, minutes: int) -> None:
     """Snooze an alarm by ID — reschedules it N minutes from now."""
     alarm = store.get(id)
     if not alarm:
-        console.print(f"[red]Error:[/red] Alarm '{id}' not found.", err=True)
+        console.print(f"[red]Error:[/red] Alarm '{id}' not found.")
         sys.exit(1)
 
     new_time = (datetime.now() + timedelta(minutes=minutes)).strftime("%H:%M")
